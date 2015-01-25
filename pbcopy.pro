@@ -1,6 +1,7 @@
 TARGET       = pbcopy
 CONFIG      += sailfishapp
-QT          += gui
+QT          += quick
+DEFINES     += APP_NAME=\"\\\"$${APPNAME}\\\"\" APP_AUTHOR=\"\\\"$${AUTHOR}\\\"\" APP_VERSION=\"\\\"$${VERSION}\\\"\"
 SOURCES     += src/pbcopy.cpp
 HEADERS     += src/pbcopy.h
 OTHER_FILES += rpm/pbcopy.changes \

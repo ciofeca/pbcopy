@@ -13,13 +13,14 @@ Name:       pbcopy
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Pastebuffer pbcopy
-Version:    0.2
+Version:    1.0
 Release:    1
 Group:      Qt/Qt
 License:    GPLv2
 URL:        http://particolarmente-urgentissimo.blogspot.com
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  pbcopy.yaml
+BuildRequires:  pkgconfig(sailfishapp) >= 1.0.9
 BuildRequires:  pkgconfig(Qt5Core)
 
 %description
@@ -36,7 +37,10 @@ Copy text from/to Qt pastebuffer via stdin/stdout
 # >> build pre
 # << build pre
 
-%qtc_qmake5 
+%qtc_qmake5  \
+    APPNAME='%{name}' \
+    VERSION='%{version}-%{release}' \
+    AUTHOR='Alfonso_Martone'
 
 %qtc_make %{?_smp_mflags}
 
