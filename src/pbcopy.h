@@ -2,6 +2,7 @@
 #define PBCOPY_H
 
 #include <QGuiApplication>
+#include <QStringList>
 #include <QClipboard>
 #include <QQuickView>
 #include <QTimer>
@@ -23,7 +24,7 @@ class Clippami: public QObject
 {
     Q_OBJECT
 public:
-    explicit Clippami(QObject* parent, QClipboard* clip): QObject(parent), c(clip) { }
+    explicit Clippami(QObject* parent, QClipboard* clip, QString str): QObject(parent), c(clip), arg(str) { }
 
 public slots:
     void run()
@@ -34,15 +35,16 @@ public slots:
         cerr << "!--" << APP_NAME << " " << APP_VERSION << endl;
         if(c->text().size() > 0)
         {
-            cerr << "!--currently " << c->text().size() << " bytes in clipboard:" << endl;
+            cerr << "!--currently " << c->text().size() << " characters in clipboard:" << endl;
             cout << c->text() << endl;
         }
         cerr << "!--reading from stdin:" << endl;
-        QString txt(cin.readAll());
+        QString txt(arg);
+        txt += cin.readAll();
         c->clear();
         c->setText(txt);
         c->selectionChanged();
-        cerr << "!--clipboard now " << c->text().size() << " bytes:" << endl << c->text() << endl;
+        cerr << "!--clipboard now " << c->text().size() << " characters:" << endl << c->text() << endl;
 
         signal(SIGALRM,::signalarm);
         alarm(1);
@@ -50,6 +52,7 @@ public slots:
 
 private:
     QClipboard* c;
+    QString arg;
 };
 
 #endif // PBCOPY_H

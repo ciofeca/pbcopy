@@ -9,7 +9,9 @@ int main(int argc, char* argv[])
     app->setApplicationName(name);
     app->setApplicationVersion(vers);
     app->setOrganizationName(org);
-    Clippami task(&*app, QGuiApplication::clipboard());
+    QStringList arg;
+    for(int n=1; n<argc; n++) arg << argv[n];
+    Clippami task(&*app, QGuiApplication::clipboard(), arg.join((QChar)(' ')));
     QScopedPointer<QQuickView> view(SailfishApp::createView());
     view->setTitle(name);
     view->show();
