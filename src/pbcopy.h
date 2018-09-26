@@ -16,7 +16,7 @@
 
 static void signalarm(int sig)
 {
-    if(sig==SIGALRM) exit(0);
+    if(sig==SIGALRM) QCoreApplication::quit();
 }
 
 
