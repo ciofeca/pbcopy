@@ -13,11 +13,11 @@ Name:       pbcopy
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Pastebuffer pbcopy
-Version:    1.3
+Version:    1.1
 Release:    1
 Group:      Qt/Qt
 License:    GPLv2
-URL:        https://particolarmente-urgentissimo.blogspot.com
+URL:        http://particolarmente-urgentissimo.blogspot.com
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  pbcopy.yaml
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.9
@@ -59,9 +59,5 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root,-)
 %{_bindir}
-%{_datadir}/icons/hicolor/86x86/apps/icon86.png
-%{_datadir}/icons/hicolor/108x108/apps/icon108.png
-%{_datadir}/icons/hicolor/128x128/apps/icon128.png
-%{_datadir}/icons/hicolor/256x256/apps/icon256.png
 # >> files
 # << files
