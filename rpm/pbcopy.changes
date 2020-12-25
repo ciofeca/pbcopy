@@ -1,9 +1,0 @@
-* Fri Jan 30 2015 Alfonso Martone <alfonso.martone@gmail.com> 1.1-1
-- now adds command-line args as well
-
-* Sun Jan 25 2015 Alfonso Martone <alfonso.martone@gmail.com> 1.0-1
-- arrrrgh, Sailfish OS 1.1 requires a different approach (sailfishapp/sigalarm instead of qtgui/emit)
-
-* Tue Dec 02 2014 Alfonso Martone <alfonso.martone@gmail.com> 0.1-1
-- first release
-
